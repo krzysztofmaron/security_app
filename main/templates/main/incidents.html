@@ -1,0 +1,195 @@
+{% extends 'main/base.html' %}
+
+
+
+{% block content %} 
+<link rel="stylesheet" href="../../static/css/main/incidents.css">
+<script src="../../static/js/main/incidents.js"></script>
+<!-- "main" SECTION -->
+
+<div class="main-frame">
+
+    <div class="district-container">
+        <p>DISTRICT</p>
+        <select name="district-select" id="selectElement">
+            {% for district in districts %}
+                <option value="{{district.name}}">{{district.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="second-frame">
+        <div class="left-frame">
+            <div class="left-top-frame">
+                <p class="myChartTitle">WEEKLY INCIDENTS STATISTICS</p>
+                <div class="chart-container">
+                    <canvas id="myChart" class="chart1"></canvas>
+                </div>
+            </div>
+            <div class="left-bottom-frame">
+                <div class="lbf-left-frame">
+                    <p class="lbf-left-title">CURRENT DAY</p>
+                    <div class="stat-container">
+                        <p>CAPTURES</p>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar capture"></div>
+                            <p class="stat-bar-count capture">9</p>
+                        </div>
+                    </div>
+                    <div class="stat-container">
+                        <p>REVEALS</p>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar reveal"></div>
+                            <p class="stat-bar-count reveal">9</p>
+                        </div>
+                    </div>
+                    <div class="stat-container">
+                        <p>PASSES</p>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar pass"></div>
+                            <p class="stat-bar-count pass">9</p>
+                        </div>
+                    </div>
+                    <div class="stat-container">
+                        <p>PREVENTIONS</p>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar prevention"></div>
+                            <p class="stat-bar-count prevention">9</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lbf-right-frame">
+                    <p class="myChartTitle2">INCIDENTS DISTRIBUTION</p>
+                    <div class="separator">
+                        <p class="separator-title">WEEKLY</p>
+                        <div class="line"></div>
+                    </div>
+                    <div class="chart2-container">
+                        <canvas id="myChart2" class="chart2"></canvas>
+                        <div class="chart2-legend">
+                            <div class="squares">
+                                <div class="square capture"></div>
+                                <div class="square reveal"></div>
+                                <div class="square pass"></div>
+                                <div class="square prevention"></div>
+                            </div>
+                            <div class="labels">
+                                <div class="label">CAPTURES</div>
+                                <div class="label">REVEALS</div>
+                                <div class="label">PASSES</div>
+                                <div class="label">PREVENTIONS</div>
+                            </div>
+                            <div class="percentages">
+                                <div class="percentage capture">25%</div>
+                                <div class="percentage reveal">25%</div>
+                                <div class="percentage pass">25%</div>
+                                <div class="percentage prevention">25%</div>
+                            </div>
+                            <div class="counts">
+                                <div class="count capture">9</div>
+                                <div class="count reveal">9</div>
+                                <div class="count pass">9</div>
+                                <div class="count prevention">9</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="separator">
+                        <p class="separator-title">DAILY</p>
+                        <div class="line"></div>
+                    </div>
+                    <div class="chart3-container">
+                        <canvas id="myChart3" class="chart3"></canvas>
+                        <div class="chart3-legend">
+                            <div class="squares">
+                                <div class="square capture"></div>
+                                <div class="square reveal"></div>
+                                <div class="square pass"></div>
+                                <div class="square prevention"></div>
+                            </div>
+                            <div class="labels">
+                                <div class="label">CAPTURES</div>
+                                <div class="label">REVEALS</div>
+                                <div class="label">PASSES</div>
+                                <div class="label">PREVENTIONS</div>
+                            </div>
+                            <div class="percentages">
+                                <div class="percentage capture">25%</div>
+                                <div class="percentage reveal">25%</div>
+                                <div class="percentage pass">25%</div>
+                                <div class="percentage prevention">25%</div>
+                            </div>
+                            <div class="counts">
+                                <div class="count capture">9</div>
+                                <div class="count reveal">9</div>
+                                <div class="count pass">9</div>
+                                <div class="count prevention">9</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-frame">
+            <div class="rf-left">
+                <p class="rf-title">CURRENT DAY INCIDENTS DETAILS</p>
+                <div class="scroll-container">
+                </div>
+            </div>
+            <div class="rf-right">
+                <div class="report-incident">
+                    <p class="riTitle">REPORT INCIDENT</p>
+                    <div class="report-form">
+                        <div class="form-facility">
+                            <p class="input-text-title">Facility</p>
+                            <select name="reportFacility" class="reportFacility">
+                                {% for facility in facilities %}
+                                    <option value="{{facility.numerical_name}}">{{facility.numerical_name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-type">
+                            <p class="input-text-title">Type</p>
+                            <select name="reportType" class="reportType">
+                                <option value="capture">CAPTURE</option>
+                                <option value="reveal">REVEAL</option>
+                                <option value="pass">PASS</option>
+                                <option value="prevention">PREVENTION</option>
+                            </select>
+                        </div>
+                        <div class="form-start">
+                            <p class="input-text-title">Start Hour</p>
+                            <input type="time" class="time-input start-hour">
+                        </div>
+                        <div class="form-end">
+                            <p class="input-text-title">End Hour</p>
+                            <input type="time" class="time-input end-hour">
+                        </div>
+                        <div class="form-date">
+                            <p class="input-text-title">Date</p>
+                            <input type="date" class="date-input date">
+                        </div>
+                        <div class="form-cameras">
+                            <p class="input-text-title">Cameras</p>
+                            <input type="text" class="text-input cameras">
+                            <p class="note">Note: Input incident related cameras separated with commas.</p>
+                        </div>
+                        <div class="form-description">
+                            <p class="input-text-title">Description</p>
+                            <textarea name="reportDescription" class="text-input description" cols="30" rows="10"></textarea>
+                        </div>
+                        
+                        <div class="submit-button disabled">Submit</div>
+                    </div>
+                    <div class="unscroll-form-button"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+{% endblock %}

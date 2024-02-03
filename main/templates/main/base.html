@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/main/base.css">
+    <script src="../../static/js/main/base.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Security Site</title>
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img src="../../static/img/base/shield.svg" alt="">
+            <div class="logo-text-container">
+                <p class="logo-text-big">SECURITY</p>
+                <p class="logo-text-small">COMMERCIAL FACILITIES</p>
+            </div>
+        </div>
+        {% if is_manager %}
+        <div class="panel-container authenticated">
+            <img src="../../static/img/base/panel.png" alt="">
+            <p>PANEL</p>
+        </div>
+        {% else %}
+        <div class="panel-container">
+            <img src="../../static/img/base/panel.png" alt="">
+            <p>PANEL</p>
+        </div>
+        {% endif %}
+        <div class="tabs-main-container">
+            <div class="tab-container incidents active">
+                <div class="tab-img"></div>
+                <p class="tab-name">INCIDENTS</p>
+                <div class="tab-rectangle"></div>
+            </div>
+            <div class="tab-container statistics">
+                <div class="tab-img"></div>
+                <p class="tab-name">STATISTICS</p>
+                <div class="tab-rectangle hidden"></div>
+            </div>
+            <div class="tab-container calendar">
+                <div class="tab-img"></div>
+                <p class="tab-name">CALENDAR</p>
+                <div class="tab-rectangle hidden"></div>
+            </div>
+            <div class="tab-container documents last">
+                <div class="tab-img"></div>
+                <p class="tab-name">DOCUMENTS</p>
+                <div class="tab-rectangle hidden"></div>
+            </div>
+        </div>
+
+        <div class="profile-and-logout">
+            <div class="profile-container">
+                <img src="../../static/img/base/profile.svg" alt="">
+                <p>FIRST LASTNAME</p>
+                <!-- <p>{{user.first_name}} {{user.last_name}}</p> -->
+            </div>
+            <div class="notify-logout-container">
+                <div class="notify-img"></div>
+                <div class="logout"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+    <!-- <footer>
+        <p>&copy; 2024 My Website</p>
+    </footer> -->
+</body>
+</html>

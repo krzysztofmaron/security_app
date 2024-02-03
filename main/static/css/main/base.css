@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
+* {
+    font-family: 'Rubik', sans-serif;
+}
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+nav {
+    display: flex;
+    background-color: #313131;
+    height: 10vh;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+.tabs-main-container {
+    display: flex;
+}
+    .tab-container {
+        border-left: 1px solid #5B5B5B;
+        width: 5.7vw;
+        font-weight: 500;
+        color: #B4B4B4;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+        transition: .1s linear;
+    }
+    .tab-container.active {
+        background-color: #272727;
+        cursor: pointer;
+    }
+    .tab-container:hover {
+        background-color: #383838;
+    }
+    .tab-container.active:hover {
+        background-color: #272727;
+    }
+    .last {
+        border-right: 1px solid #5B5B5B;
+    }
+    .tab-img {
+        min-width: 2.2vw;
+        min-height: 2.2vw;
+        min-height: 2.2vw;
+        max-height: 2.2vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1vh;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .statistics img {
+        height: 2vw;
+    }
+    .tab-container p {
+        margin-top: 10px;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .tab-rectangle {
+        height: 10px;
+        background-color: #DC5B5B;
+        width: 5.7vw;
+    }
+    .hidden {
+        display: none;
+    }
+    .active p {
+        color: #DC5B5B;
+        margin-top: 6px;
+        margin-bottom: 6px;
+    }
+    .incidents .tab-img {
+        background-image: url('../../img/base/alarm.svg');
+        background-size: 95%;
+    }
+    .statistics .tab-img {
+        background-image: url('../../img/base/statistics.svg');
+        background-size: 90%;
+    }
+    .calendar .tab-img {
+        background-image: url('../../img/base/calendar.svg');
+        background-size: 110%;
+    }
+    .documents .tab-img {
+        background-image: url('../../img/base/documents.svg')
+    }
+
+    .incidents.active .tab-img {
+        background-image: url('../../img/base/alarm-active.svg');
+    }
+    .statistics.active .tab-img {
+        background-image: url('../../img/base/statistics-active.svg');
+    }
+    .calendar.active .tab-img {
+        background-image: url('../../img/base/calendar-active.svg');
+    }
+    .documents.active .tab-img {
+        background-image: url('../../img/base/documents-active.svg');
+    }
+
+    .logo-container {
+        display: flex;
+        height: 6vh;
+        align-items: center;
+        margin-left: 1vw;
+        cursor: default;
+        user-select: none;
+    }
+    .logo-text-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .logo-text-big {
+        color: #DC5B5B;
+        margin: 0;
+        font-size: 32px;
+        font-weight: 600;
+    }
+    .logo-text-small {
+        color: #FFFFFF;
+        margin: 0;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .panel-container {
+        display: flex;
+        gap: .25vw;
+        align-items: center;
+        color: #A6A7A7;
+        font-size: 20px;
+        font-weight: 500;
+        cursor: pointer;
+        user-select: none;
+    }
+    .panel-container img {
+        width: 1.25vw;
+        height: 1.25vw;
+    }
+    .panel-container p {
+        margin: 0;
+    }
+
+    .profile-container {
+        display: flex;
+        gap: .5vw;
+        color: #A6A7A7;
+        font-size: 24px;
+        font-weight: 500;
+        cursor: pointer;
+        user-select: none;
+        padding-left: 1vw;
+    }
+
+
+
+    .profile-and-logout {
+        display: flex;
+        align-items: center;
+        gap: 3vw;
+        height: 10vh;
+        border-left: 1px solid #5B5B5B;
+        margin-right: 1vw;
+    }
+
+
+    .notify-logout-container {
+        display: flex;
+        gap: 2vw;
+    }
+        .notify-img {
+            background-image: url('../../img/base/notifications.svg');
+            height: 2vw;
+            width: 2vw;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 80%;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .logout {
+            background-image: url('../../img/base/logout.svg');
+            height: 2vw;
+            width: 2vw;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 75%;
+            cursor: pointer;
+            user-select: none;
+        }
